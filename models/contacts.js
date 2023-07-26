@@ -41,28 +41,16 @@ const addContact = async ({name, email, phone}) => {
   return newContact
 }
 
-const updateContact = async (contactId, {name, email, phone}) => {
+const updateContact = async (id, {name, email, phone}) => {
   const contacts = await listContacts()
-  const index = contacts.findIndex(item => item.id === contactId)
+  const index = contacts.findIndex(item => item.id === id)
   if (index === -1) {
     return null;
   }
-  contacts[index] = { contactId, name, email, phone };
+  contacts[index] = {id, name, email, phone };
   await updateContactsStorage(contacts)
   return contacts[index]
 }
-
-// const fs = require('fs/promises')
-
-// const listContacts = async () => {}
-
-// const getContactById = async (contactId) => {}
-
-// const removeContact = async (contactId) => {}
-
-// const addContact = async (body) => {}
-
-// !!! const updateContact = async (contactId, body) => {}
 
 export default {
   listContacts,
