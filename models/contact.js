@@ -8,9 +8,11 @@ const contactSchema = new Schema({
     },
     email: {
       type: String,
+      unique: true,
     },
     phone: {
       type: String,
+      unique: true,
     },
     favorite: {
       type: Boolean,
@@ -19,7 +21,7 @@ const contactSchema = new Schema({
     owner: {
       type: Schema.Types.ObjectId,
       ref: 'user',
-    }
+  }
 }, {versionKey: false, timestamps: true})
 
 contactSchema.pre("findOneAndUpdate", validateAtUpdate)
