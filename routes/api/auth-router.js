@@ -10,6 +10,8 @@ authRouter.post('/register', validateBody(usersSchemas.userSignupSchema), authCo
 
 authRouter.post('/login', validateBody(usersSchemas.userSigninSchema), authController.signin)
 
+authRouter.get('/verify/:verificationToken', authController.verify)
+
 authRouter.patch('/avatars', authenticate, upload.single('avatar'), authController.changeAvatar)
 
 authRouter.get('/current', authenticate, authController.getCurrent)

@@ -1,7 +1,7 @@
 import Joi from "joi";
 
 const userSignupSchema = Joi.object({
-    email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
+    email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net', 'ua'] } }).required(),
     password: Joi.string().min(6).required()
 })
 
