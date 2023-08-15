@@ -48,7 +48,7 @@ const verify = async (req, res) => {
         throw HttpError (404, "Email is not found")
     }
 
-    await User.findByIdAndUpdate(user._id, { verify: true, verificationToken: "" })
+    await User.findByIdAndUpdate(user._id, { verify: true, verificationToken: null })
     res.json({
         message: 'Email has been verified successfully'
     })
